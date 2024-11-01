@@ -1,0 +1,42 @@
+/* OrganizerPanelStyles.css */
+
+.organizer-panel {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .organizer-panel h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .organizer-panel button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .organizer-panel button:hover {
+    background-color: #2e7d32;
+  }
+  
+  .organizer-panel .auction-status {
+    margin-top: 20px;
+  }
+  
+  .organizer-panel .auction-status h3 {
+    margin-bottom: 10px;
+  }
+  
+  .organizer-panel .auction-status p {
+    margin: 5px 0;
+  }
+  
+  .organizer-panel .auction-table {
+    margin-top: 20px;
+  }
+  

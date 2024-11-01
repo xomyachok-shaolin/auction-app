@@ -1,0 +1,66 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+log/
+
+# Build files
+build/
+dist/
+public/build/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Frontend (React)
+client/node_modules/
+client/.cache/
+client/.next/
+client/build/
+client/dist/
+
+# Other
+.vscode/
+.idea/
+*.iml
+
+# Generated files
+client/*.cache/
+client/*.tmp/
+*.gz
+
+# Sentry files (if used)
+.sentryclirc
+.sentryrelease
+.sentrycache/
+
+# Parcel Cache (if used)
+.cache/
+
+# Mac system files
+*.DS_Store
+
+# Netlify/Vercel build outputs
+.netlify/
+.vercel/

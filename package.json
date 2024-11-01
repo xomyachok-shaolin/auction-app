@@ -1,0 +1,25 @@
+{
+  "name": "auction-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server.js",
+    "client": "pnpm --filter client start",
+    "client-install": "pnpm --filter client install",
+    "client-build": "pnpm --filter client run build",
+    "dev": "concurrently \"pnpm run server\" \"pnpm run client\"",
+    "heroku-postbuild": "pnpm run client-install && pnpm run client-build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

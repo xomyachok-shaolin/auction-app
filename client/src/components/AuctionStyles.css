@@ -1,0 +1,64 @@
+/* Стили для AuctionHeader */
+.auction-header {
+    text-align: center;
+    color: #e53935;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.auction-header h1 {
+    font-size: 1.5em;
+}
+
+.auction-date {
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* Стили для AuctionTable */
+.auction-table {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.auction-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.auction-table th,
+.auction-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.auction-table th {
+    background-color: #f4f6f8;
+    color: #333;
+    font-weight: bold;
+}
+
+.bid-row .bid {
+    color: #388e3c;
+    font-weight: bold;
+}
+
+/* Стили для Timer */
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #d32f2f;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Примечание */
+.note {
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 20px;
+}
