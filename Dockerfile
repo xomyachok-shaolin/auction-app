@@ -1,23 +1,29 @@
-# Backend Dockerfile
-FROM node:20-alpine
+# Используем Node.js в качестве базового образа
+FROM node:20
 
+# Устанавливаем pnpm
+RUN npm install -g pnpm
+
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Копируем package.json и pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm && pnpm install
 
-# Copy the rest of the application code
+# Устанавливаем зависимости сервера и клиента
+RUN pnpm install
+
+# Копируем весь код в контейнер
 COPY . .
 
-# Устанавливаем зависимости клиента и собираем приложение
-RUN cd client && pnpm install && pnpm run build
+# Собираем React-приложение
+RUN pnpm run build --filter client
 
 # Устанавливаем переменную окружения для порта
 ENV PORT=5000
 
-# Expose the port your backend listens on
+# Открываем порт
 EXPOSE 5000
 
-# Start the backend server
+# Запускаем приложение
 CMD ["node", "server.js"]

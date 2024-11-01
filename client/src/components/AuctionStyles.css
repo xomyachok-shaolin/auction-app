@@ -62,3 +62,7 @@
     color: #777;
     margin-top: 20px;
 }
+
+.auction-room p {
+    white-space: pre-wrap; /* Позволяет переносить строки */
+}

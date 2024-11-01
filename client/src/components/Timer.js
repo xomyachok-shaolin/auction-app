@@ -7,9 +7,10 @@ const Timer = ({ totalTime, turnTime, isMyTurn }) => {
 
     return (
         <div className="timer">
-            <p>Общее время: {totalTime} сек</p>
-            <p>Время на ход: {turnTime} сек</p>
+            <p>Общее время: {totalTime} сек<br/>
+            Время на ход: {turnTime} сек<br/>
             {isMyTurn && <p>Ваш ход!</p>}
+            </p>
         </div>
     );
 };

@@ -1,14 +1,19 @@
 // AuctionHeader.js
-import React from 'react';
-import './AuctionStyles.css';
+import React from "react";
+import "./AuctionStyles.css";
 
 const AuctionHeader = ({ lotNumber, date }) => {
-    return (
-        <div className="auction-header">
-            <h1>Ход торгов <span>Тестовые торги на аппарат ЛОТОС №{lotNumber}</span></h1>
-            <p className="auction-date">{date}</p>
-        </div>
-    );
+  return (
+    <div className="auction-header">
+      <p>
+        Ход торгов
+        <br />
+        Тестовые торги на аппарат ЛОТОС №29033564
+      </p>
+
+      <p className="auction-date">{date}</p>
+    </div>
+  );
 };
 
 export default AuctionHeader;

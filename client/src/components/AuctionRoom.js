@@ -63,10 +63,19 @@ const AuctionRoom = () => {
             alert('Введите корректную сумму');
             return;
         }
+    
+        // Найдите текущую максимальную ставку
+        const currentHighestBid = Math.max(...auctionData.participants.map(p => p.bid));
+    
+        if (bidValue <= currentHighestBid) {
+            alert(`Ставка должна быть выше текущей максимальной ставки (${currentHighestBid})`);
+            return;
+        }
+    
         ws.send(JSON.stringify({ type: 'placeBid', bid: bidValue }));
         setNewBid('');
     };
-
+    
     const handlePassTurn = () => {
         ws.send(JSON.stringify({ type: 'passTurn' }));
     };
@@ -79,24 +88,31 @@ const AuctionRoom = () => {
                 turnTime={auctionData.turnTimeRemaining}
                 isMyTurn={isMyTurn}
             />
-            <AuctionTable participants={auctionData.participants} />
-            {isMyTurn ? (
-                <div className="bid-controls">
-                    <input
-                        type="number"
-                        placeholder="Введите новую цену"
-                        value={newBid}
-                        onChange={e => setNewBid(e.target.value)}
-                    />
-                    <button onClick={handlePlaceBid}>Сделать ставку</button>
-                    <button onClick={handlePassTurn}>Передать ход</button>
-                </div>
+            {auctionData.isAuctionActive ? (
+                <>
+                    <AuctionTable participants={auctionData.participants} />
+                    {isMyTurn ? (
+                        <div className="bid-controls">
+                            <input
+                                type="number"
+                                placeholder="Введите новую цену"
+                                value={newBid}
+                                onChange={e => setNewBid(e.target.value)}
+                            />
+                            <button onClick={handlePlaceBid}>Сделать ставку</button>
+                            <button onClick={handlePassTurn}>Передать ход</button>
+                        </div>
+                    ) : (
+                        <p>Сейчас ходит: Участник №{auctionData.currentTurn + 1}</p>
+                    )}
+                </>
             ) : (
-                <p>Сейчас ходит: Участник №{auctionData.currentTurn + 1}</p>
+                <p style={{textAlign: 'center'}}>Торги закрыты.</p>
             )}
             <p className="note">Уважаемые участники, во время вашего хода вы можете изменить параметры торгов, указанных в таблице.</p>
         </div>
     );
+    
 };
 
 export default AuctionRoom;
